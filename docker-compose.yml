@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+  mongo:
+    image: mongo:5.0
+    # hostname: test_mongo
+    environment:
+      #- MONGO_INITDB_DATABASE=test_db
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    ports: 
+      - 27017:27017
+    #command: mongod --auth
